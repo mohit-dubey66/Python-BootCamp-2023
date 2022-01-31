@@ -1,9 +1,8 @@
 {% extends 'main.html' %}
 {% block body %}
+<h1> Create Skill </h1>
 
-<h1>Delete Project</h1>
 
-<!-- Main Section -->
 <main class="formPage my-xl">
     <div class="content-box">
         <div class="formWrapper">
@@ -12,10 +11,13 @@
 
             <form class="form" method="POST">
                 {% csrf_token %}
-                <p>Are your sure you want to delete "{{object.title}}"?</p>
-                <a class="btn btn--sub btn--lg  my-md" href="{% url 'account' %}">&#x2190 Go Back</a>
-                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Delete" />
-            </form>
+                {% for field in forms %}
+                {{field.label}}
+                {{field}}
+                
+                {% endfor %}
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            <form/>
         </div>
     </div>
 </main>
